@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="41aca3160aa9403db7b63303c7acfb76" Name="Diagram1">
+        <EntityTypeShape EntityType="MegaModel.AdjustIn" Width="1.5" PointX="5.25" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.AdjustOut" Width="1.5" PointX="8.25" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.Category" Width="1.5" PointX="6" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.Comsumption" Width="1.5" PointX="10.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.Employee" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.Gender" Width="1.5" PointX="0.75" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.Issued" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.IssuedDetail" Width="1.5" PointX="10.5" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.ItemPricing" Width="1.5" PointX="5.25" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.Item" Width="1.5" PointX="8.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.Position" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.Project" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.Province" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.Purchase" Width="1.5" PointX="8.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.PurchaseDetail" Width="1.5" PointX="13.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.ReturnToSupplier" Width="1.5" PointX="8.25" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.ReturnToSupplierDetail" Width="1.5" PointX="10.5" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.ReturnToWH" Width="1.5" PointX="11.25" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.ReturnToWHDetail" Width="1.5" PointX="13.5" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.Stock" Width="1.5" PointX="10.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.Supplier" Width="1.5" PointX="6" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="MegaModel.sysdiagram" Width="1.5" PointX="2.75" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="MegaModel.FK_AdjustIn_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_AdjustIn_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_AdjustIn_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_AdjustOut_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_AdjustOut_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_AdjustOut_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_Items_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_Comsumption_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_Employees_Genders" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_Employees_Positions" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_Issued_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_Issued_Employees1" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_Purchase_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_Purchase_Employees1" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_ReturnToSupplier_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_ReturnToSupplier_Employees1" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_ReturnToSupplier_Employees2" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_ReturnToWH_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_ReturnToWH_Employees1" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_ReturnToWH_Employees2" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_SupplierUP_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_Issued_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_IssuedDetail_Issued" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_IssuedDetail_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_SupplierUP_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_PurchaseDetail_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_ReturnToSupplierDetail_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_ReturnToWHDetail_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_Stock_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_ReturnToSupplier_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_ReturnToWH_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_Purchase_Suppliers" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_PurchaseDetail_Purchase" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_ReturnToSupplierDetail_ReturnToSupplier" ManuallyRouted="false" />
+        <AssociationConnector Association="MegaModel.FK_ReturnToWHDetail_ReturnToWH" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

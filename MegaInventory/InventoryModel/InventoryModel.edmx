@@ -1,0 +1,2116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MegaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdjustIn">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdjustInDate" Type="date" Nullable="false" />
+          <Property Name="Reference" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ItemCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="ComputerCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ComputeTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AdjustOut">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdjustOutDate" Type="date" Nullable="false" />
+          <Property Name="Reference" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ItemCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="ComputerCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ComputeTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comsumption">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ComsumtionDate" Type="date" Nullable="false" />
+          <Property Name="ItemCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Jan" Type="int" />
+          <Property Name="Feb" Type="int" />
+          <Property Name="Mar" Type="int" />
+          <Property Name="Apr" Type="int" />
+          <Property Name="May" Type="int" />
+          <Property Name="Jun" Type="int" />
+          <Property Name="Jul" Type="int" />
+          <Property Name="Aug" Type="int" />
+          <Property Name="Sep" Type="int" />
+          <Property Name="Oct" Type="int" />
+          <Property Name="Nov" Type="int" />
+          <Property Name="Dec" Type="int" />
+          <Property Name="WeeklyAverage" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="GrandAmount" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmployeeNameKh" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="EmployeeNameEn" Type="nvarchar" MaxLength="200" />
+          <Property Name="GenderId" Type="int" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="PlaceOfBirth" Type="nvarchar" MaxLength="500" />
+          <Property Name="CurrentAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="NationalId" Type="varchar" MaxLength="50" />
+          <Property Name="PositionId" Type="int" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="150" />
+          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="StartWorkDate" Type="date" />
+          <Property Name="StopWorkDate" Type="date" />
+          <Property Name="UserName" Type="varchar" MaxLength="500" />
+          <Property Name="Password" Type="varchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Genders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Issued">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IssuedDate" Type="date" Nullable="false" />
+          <Property Name="Reference1" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Reference2" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ApplicantCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="Purpose" Type="nvarchar" MaxLength="500" />
+          <Property Name="Car" Type="nvarchar" MaxLength="500" />
+          <Property Name="ComputerCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ComputeTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IssuedDetail">
+          <Key>
+            <PropertyRef Name="MasterCode" />
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="MasterCode" Type="int" Nullable="false" />
+          <Property Name="ItemCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemPricing">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NotedDate" Type="date" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="ComputerCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ComputeTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EnglishName" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="CurrentPrice" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Positions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="500" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Provinces">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PurchaseDate" Type="date" Nullable="false" />
+          <Property Name="PurchaserCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SupplierId" Type="int" Nullable="false" />
+          <Property Name="InvoiceNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="PRNO" Type="varchar" MaxLength="100" />
+          <Property Name="BuyFrom" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsLock" Type="bit" Nullable="false" />
+          <Property Name="ComputerCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ComputeTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PurchaseDetail">
+          <Key>
+            <PropertyRef Name="MasterCode" />
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="MasterCode" Type="int" Nullable="false" />
+          <Property Name="ItemCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="AddedQuantity" Type="int" Nullable="false" />
+          <Property Name="RemainQuantity" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReturnToSupplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReturnDate" Type="date" Nullable="false" />
+          <Property Name="Reference" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ApplicantCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApproverCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="ComputerCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ComputeTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReturnToSupplierDetail">
+          <Key>
+            <PropertyRef Name="MasterCode" />
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="MasterCode" Type="int" Nullable="false" />
+          <Property Name="ItemCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReturnToWH">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReturnDate" Type="date" Nullable="false" />
+          <Property Name="Reference" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ApplicantCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApproverCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="ComputerCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ComputeTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReturnToWHDetail">
+          <Key>
+            <PropertyRef Name="MasterCode" />
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="MasterCode" Type="int" Nullable="false" />
+          <Property Name="ItemCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="ItemCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Suppliers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_AdjustIn_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="AdjustIn" Type="Self.AdjustIn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="AdjustIn">
+              <PropertyRef Name="ComputerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdjustIn_Items">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="AdjustIn" Type="Self.AdjustIn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="AdjustIn">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdjustIn_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+          <End Role="AdjustIn" Type="Self.AdjustIn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdjustIn">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdjustOut_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="AdjustOut" Type="Self.AdjustOut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="AdjustOut">
+              <PropertyRef Name="ComputerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdjustOut_Items">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="AdjustOut" Type="Self.AdjustOut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="AdjustOut">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdjustOut_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+          <End Role="AdjustOut" Type="Self.AdjustOut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdjustOut">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comsumption_Items">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Comsumption" Type="Self.Comsumption" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Comsumption">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Genders">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Positions">
+          <End Role="Positions" Type="Self.Positions" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Positions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Issued_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="Issued" Type="Self.Issued" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Issued">
+              <PropertyRef Name="ComputerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Issued_Employees1">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="Issued" Type="Self.Issued" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Issued">
+              <PropertyRef Name="ApplicantCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Issued_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+          <End Role="Issued" Type="Self.Issued" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Issued">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IssuedDetail_Issued">
+          <End Role="Issued" Type="Self.Issued" Multiplicity="1" />
+          <End Role="IssuedDetail" Type="Self.IssuedDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Issued">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IssuedDetail">
+              <PropertyRef Name="MasterCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IssuedDetail_Items">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="IssuedDetail" Type="Self.IssuedDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="IssuedDetail">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="PurchaserCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Employees1">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="ComputerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Suppliers">
+          <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="SupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseDetail_Items">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="PurchaseDetail" Type="Self.PurchaseDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="PurchaseDetail">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseDetail_Purchase">
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="1" />
+          <End Role="PurchaseDetail" Type="Self.PurchaseDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseDetail">
+              <PropertyRef Name="MasterCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToSupplier_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="ReturnToSupplier" Type="Self.ReturnToSupplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ReturnToSupplier">
+              <PropertyRef Name="ApproverCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToSupplier_Employees1">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="ReturnToSupplier" Type="Self.ReturnToSupplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ReturnToSupplier">
+              <PropertyRef Name="ApplicantCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToSupplier_Employees2">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="ReturnToSupplier" Type="Self.ReturnToSupplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ReturnToSupplier">
+              <PropertyRef Name="ComputerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToSupplier_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+          <End Role="ReturnToSupplier" Type="Self.ReturnToSupplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReturnToSupplier">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToSupplierDetail_Items">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="ReturnToSupplierDetail" Type="Self.ReturnToSupplierDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ReturnToSupplierDetail">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToSupplierDetail_ReturnToSupplier">
+          <End Role="ReturnToSupplier" Type="Self.ReturnToSupplier" Multiplicity="1" />
+          <End Role="ReturnToSupplierDetail" Type="Self.ReturnToSupplierDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReturnToSupplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReturnToSupplierDetail">
+              <PropertyRef Name="MasterCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToWH_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="ReturnToWH" Type="Self.ReturnToWH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ReturnToWH">
+              <PropertyRef Name="ApproverCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToWH_Employees1">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="ReturnToWH" Type="Self.ReturnToWH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ReturnToWH">
+              <PropertyRef Name="ApplicantCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToWH_Employees2">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="ReturnToWH" Type="Self.ReturnToWH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ReturnToWH">
+              <PropertyRef Name="ComputerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToWH_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+          <End Role="ReturnToWH" Type="Self.ReturnToWH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReturnToWH">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToWHDetail_Items">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="ReturnToWHDetail" Type="Self.ReturnToWHDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ReturnToWHDetail">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToWHDetail_ReturnToWH">
+          <End Role="ReturnToWH" Type="Self.ReturnToWH" Multiplicity="1" />
+          <End Role="ReturnToWHDetail" Type="Self.ReturnToWHDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReturnToWH">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReturnToWHDetail">
+              <PropertyRef Name="MasterCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Items">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Stock" Type="Self.Stock" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupplierUP_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="ItemPricing" Type="Self.ItemPricing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ItemPricing">
+              <PropertyRef Name="ComputerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupplierUP_Items">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="ItemPricing" Type="Self.ItemPricing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ItemPricing">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MegaModelStoreContainer">
+          <EntitySet Name="AdjustIn" EntityType="Self.AdjustIn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdjustOut" EntityType="Self.AdjustOut" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comsumption" EntityType="Self.Comsumption" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genders" EntityType="Self.Genders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Issued" EntityType="Self.Issued" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IssuedDetail" EntityType="Self.IssuedDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemPricing" EntityType="Self.ItemPricing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Positions" EntityType="Self.Positions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Provinces" EntityType="Self.Provinces" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchase" EntityType="Self.Purchase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchaseDetail" EntityType="Self.PurchaseDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReturnToSupplier" EntityType="Self.ReturnToSupplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReturnToSupplierDetail" EntityType="Self.ReturnToSupplierDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReturnToWH" EntityType="Self.ReturnToWH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReturnToWHDetail" EntityType="Self.ReturnToWHDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AdjustIn_Employees" Association="Self.FK_AdjustIn_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="AdjustIn" EntitySet="AdjustIn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdjustIn_Items" Association="Self.FK_AdjustIn_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="AdjustIn" EntitySet="AdjustIn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdjustIn_Projects" Association="Self.FK_AdjustIn_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="AdjustIn" EntitySet="AdjustIn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdjustOut_Employees" Association="Self.FK_AdjustOut_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="AdjustOut" EntitySet="AdjustOut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdjustOut_Items" Association="Self.FK_AdjustOut_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="AdjustOut" EntitySet="AdjustOut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdjustOut_Projects" Association="Self.FK_AdjustOut_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="AdjustOut" EntitySet="AdjustOut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comsumption_Items" Association="Self.FK_Comsumption_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Comsumption" EntitySet="Comsumption" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Genders" Association="Self.FK_Employees_Genders">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Positions" Association="Self.FK_Employees_Positions">
+            <End Role="Positions" EntitySet="Positions" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Issued_Employees" Association="Self.FK_Issued_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Issued" EntitySet="Issued" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Issued_Employees1" Association="Self.FK_Issued_Employees1">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Issued" EntitySet="Issued" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Issued_Projects" Association="Self.FK_Issued_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Issued" EntitySet="Issued" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IssuedDetail_Issued" Association="Self.FK_IssuedDetail_Issued">
+            <End Role="Issued" EntitySet="Issued" />
+            <End Role="IssuedDetail" EntitySet="IssuedDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IssuedDetail_Items" Association="Self.FK_IssuedDetail_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="IssuedDetail" EntitySet="IssuedDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_Categories" Association="Self.FK_Items_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Employees" Association="Self.FK_Purchase_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Employees1" Association="Self.FK_Purchase_Employees1">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Suppliers" Association="Self.FK_Purchase_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseDetail_Items" Association="Self.FK_PurchaseDetail_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="PurchaseDetail" EntitySet="PurchaseDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseDetail_Purchase" Association="Self.FK_PurchaseDetail_Purchase">
+            <End Role="Purchase" EntitySet="Purchase" />
+            <End Role="PurchaseDetail" EntitySet="PurchaseDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToSupplier_Employees" Association="Self.FK_ReturnToSupplier_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ReturnToSupplier" EntitySet="ReturnToSupplier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToSupplier_Employees1" Association="Self.FK_ReturnToSupplier_Employees1">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ReturnToSupplier" EntitySet="ReturnToSupplier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToSupplier_Employees2" Association="Self.FK_ReturnToSupplier_Employees2">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ReturnToSupplier" EntitySet="ReturnToSupplier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToSupplier_Projects" Association="Self.FK_ReturnToSupplier_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="ReturnToSupplier" EntitySet="ReturnToSupplier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToSupplierDetail_Items" Association="Self.FK_ReturnToSupplierDetail_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="ReturnToSupplierDetail" EntitySet="ReturnToSupplierDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToSupplierDetail_ReturnToSupplier" Association="Self.FK_ReturnToSupplierDetail_ReturnToSupplier">
+            <End Role="ReturnToSupplier" EntitySet="ReturnToSupplier" />
+            <End Role="ReturnToSupplierDetail" EntitySet="ReturnToSupplierDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToWH_Employees" Association="Self.FK_ReturnToWH_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ReturnToWH" EntitySet="ReturnToWH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToWH_Employees1" Association="Self.FK_ReturnToWH_Employees1">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ReturnToWH" EntitySet="ReturnToWH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToWH_Employees2" Association="Self.FK_ReturnToWH_Employees2">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ReturnToWH" EntitySet="ReturnToWH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToWH_Projects" Association="Self.FK_ReturnToWH_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="ReturnToWH" EntitySet="ReturnToWH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToWHDetail_Items" Association="Self.FK_ReturnToWHDetail_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="ReturnToWHDetail" EntitySet="ReturnToWHDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToWHDetail_ReturnToWH" Association="Self.FK_ReturnToWHDetail_ReturnToWH">
+            <End Role="ReturnToWH" EntitySet="ReturnToWH" />
+            <End Role="ReturnToWHDetail" EntitySet="ReturnToWHDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Items" Association="Self.FK_Stock_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplierUP_Employees" Association="Self.FK_SupplierUP_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ItemPricing" EntitySet="ItemPricing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplierUP_Items" Association="Self.FK_SupplierUP_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="ItemPricing" EntitySet="ItemPricing" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MegaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdjustIn">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdjustInDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Reference" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ComputerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ComputeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_AdjustIn_Employees" FromRole="AdjustIn" ToRole="Employees" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_AdjustIn_Items" FromRole="AdjustIn" ToRole="Items" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_AdjustIn_Projects" FromRole="AdjustIn" ToRole="Projects" />
+        </EntityType>
+        <EntityType Name="AdjustOut">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdjustOutDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Reference" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ComputerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ComputeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_AdjustOut_Employees" FromRole="AdjustOut" ToRole="Employees" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_AdjustOut_Items" FromRole="AdjustOut" ToRole="Items" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_AdjustOut_Projects" FromRole="AdjustOut" ToRole="Projects" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Items" Relationship="Self.FK_Items_Categories" FromRole="Categories" ToRole="Items" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comsumption">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ComsumtionDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Jan" Type="Int32" />
+          <Property Name="Feb" Type="Int32" />
+          <Property Name="Mar" Type="Int32" />
+          <Property Name="Apr" Type="Int32" />
+          <Property Name="May" Type="Int32" />
+          <Property Name="Jun" Type="Int32" />
+          <Property Name="Jul" Type="Int32" />
+          <Property Name="Aug" Type="Int32" />
+          <Property Name="Sep" Type="Int32" />
+          <Property Name="Oct" Type="Int32" />
+          <Property Name="Nov" Type="Int32" />
+          <Property Name="Dec" Type="Int32" />
+          <Property Name="WeeklyAverage" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="GrandAmount" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_Comsumption_Items" FromRole="Comsumption" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmployeeNameKh" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmployeeNameEn" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="GenderId" Type="Int32" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="PlaceOfBirth" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CurrentAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NationalId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PositionId" Type="Int32" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="StartWorkDate" Type="DateTime" Precision="0" />
+          <Property Name="StopWorkDate" Type="DateTime" Precision="0" />
+          <Property Name="UserName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AdjustInComputer" Relationship="Self.FK_AdjustIn_Employees" FromRole="Employees" ToRole="AdjustIn" />
+          <NavigationProperty Name="AdjustOutComputer" Relationship="Self.FK_AdjustOut_Employees" FromRole="Employees" ToRole="AdjustOut" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK_Employees_Genders" FromRole="Employees" ToRole="Genders" />
+          <NavigationProperty Name="Position" Relationship="Self.FK_Employees_Positions" FromRole="Employees" ToRole="Positions" />
+          <NavigationProperty Name="IssuedComputer" Relationship="Self.FK_Issued_Employees" FromRole="Employees" ToRole="Issued" />
+          <NavigationProperty Name="IssuedsApplicant" Relationship="Self.FK_Issued_Employees1" FromRole="Employees" ToRole="Issued" />
+          <NavigationProperty Name="PurchasePurchaser" Relationship="Self.FK_Purchase_Employees" FromRole="Employees" ToRole="Purchase" />
+          <NavigationProperty Name="PurchaseComputer" Relationship="Self.FK_Purchase_Employees1" FromRole="Employees" ToRole="Purchase" />
+          <NavigationProperty Name="ReturnToSupplierApprover" Relationship="Self.FK_ReturnToSupplier_Employees" FromRole="Employees" ToRole="ReturnToSupplier" />
+          <NavigationProperty Name="ReturnToSupplierApplicant" Relationship="Self.FK_ReturnToSupplier_Employees1" FromRole="Employees" ToRole="ReturnToSupplier" />
+          <NavigationProperty Name="ReturnToSupplierComputer" Relationship="Self.FK_ReturnToSupplier_Employees2" FromRole="Employees" ToRole="ReturnToSupplier" />
+          <NavigationProperty Name="ReturnToWHApprover" Relationship="Self.FK_ReturnToWH_Employees" FromRole="Employees" ToRole="ReturnToWH" />
+          <NavigationProperty Name="ReturnToWHApplicant" Relationship="Self.FK_ReturnToWH_Employees1" FromRole="Employees" ToRole="ReturnToWH" />
+          <NavigationProperty Name="ReturnToWHComputer" Relationship="Self.FK_ReturnToWH_Employees2" FromRole="Employees" ToRole="ReturnToWH" />
+          <NavigationProperty Name="ItemPricingComputer" Relationship="Self.FK_SupplierUP_Employees" FromRole="Employees" ToRole="ItemPricing" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Genders" FromRole="Genders" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Issued">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IssuedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Reference1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Reference2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApplicantCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="Purpose" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Car" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ComputerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ComputeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_Issued_Employees" FromRole="Issued" ToRole="Employees" />
+          <NavigationProperty Name="Applicant" Relationship="Self.FK_Issued_Employees1" FromRole="Issued" ToRole="Employees" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_Issued_Projects" FromRole="Issued" ToRole="Projects" />
+          <NavigationProperty Name="IssuedDetails" Relationship="Self.FK_IssuedDetail_Issued" FromRole="Issued" ToRole="IssuedDetail" />
+        </EntityType>
+        <EntityType Name="IssuedDetail">
+          <Key>
+            <PropertyRef Name="MasterCode" />
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="MasterCode" Type="Int32" Nullable="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <NavigationProperty Name="Issued" Relationship="Self.FK_IssuedDetail_Issued" FromRole="IssuedDetail" ToRole="Issued" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_IssuedDetail_Items" FromRole="IssuedDetail" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="ItemPricing">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NotedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="ComputerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ComputeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_SupplierUP_Employees" FromRole="ItemPricing" ToRole="Employees" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_SupplierUP_Items" FromRole="ItemPricing" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EnglishName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AdjustIns" Relationship="Self.FK_AdjustIn_Items" FromRole="Items" ToRole="AdjustIn" />
+          <NavigationProperty Name="AdjustOuts" Relationship="Self.FK_AdjustOut_Items" FromRole="Items" ToRole="AdjustOut" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Items_Categories" FromRole="Items" ToRole="Categories" />
+          <NavigationProperty Name="Comsumptions" Relationship="Self.FK_Comsumption_Items" FromRole="Items" ToRole="Comsumption" />
+          <NavigationProperty Name="IssuedDetails" Relationship="Self.FK_IssuedDetail_Items" FromRole="Items" ToRole="IssuedDetail" />
+          <NavigationProperty Name="ItemPricings" Relationship="Self.FK_SupplierUP_Items" FromRole="Items" ToRole="ItemPricing" />
+          <NavigationProperty Name="PurchaseDetails" Relationship="Self.FK_PurchaseDetail_Items" FromRole="Items" ToRole="PurchaseDetail" />
+          <NavigationProperty Name="ReturnToSupplierDetails" Relationship="Self.FK_ReturnToSupplierDetail_Items" FromRole="Items" ToRole="ReturnToSupplierDetail" />
+          <NavigationProperty Name="ReturnToWHDetails" Relationship="Self.FK_ReturnToWHDetail_Items" FromRole="Items" ToRole="ReturnToWHDetail" />
+          <NavigationProperty Name="Stock" Relationship="Self.FK_Stock_Items" FromRole="Items" ToRole="Stock" />
+          <Property Name="CurrentPrice" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Positions" FromRole="Positions" ToRole="Employees" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AdjustIns" Relationship="Self.FK_AdjustIn_Projects" FromRole="Projects" ToRole="AdjustIn" />
+          <NavigationProperty Name="AdjustOuts" Relationship="Self.FK_AdjustOut_Projects" FromRole="Projects" ToRole="AdjustOut" />
+          <NavigationProperty Name="Issueds" Relationship="Self.FK_Issued_Projects" FromRole="Projects" ToRole="Issued" />
+          <NavigationProperty Name="ReturnToSuppliers" Relationship="Self.FK_ReturnToSupplier_Projects" FromRole="Projects" ToRole="ReturnToSupplier" />
+          <NavigationProperty Name="ReturnToWHs" Relationship="Self.FK_ReturnToWH_Projects" FromRole="Projects" ToRole="ReturnToWH" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PurchaseDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PurchaserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SupplierId" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PRNO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BuyFrom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ComputerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ComputeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Purchaser" Relationship="Self.FK_Purchase_Employees" FromRole="Purchase" ToRole="Employees" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_Purchase_Employees1" FromRole="Purchase" ToRole="Employees" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Purchase_Suppliers" FromRole="Purchase" ToRole="Suppliers" />
+          <NavigationProperty Name="PurchaseDetails" Relationship="Self.FK_PurchaseDetail_Purchase" FromRole="Purchase" ToRole="PurchaseDetail" />
+          <Property Name="IsLock" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PurchaseDetail">
+          <Key>
+            <PropertyRef Name="MasterCode" />
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="MasterCode" Type="Int32" Nullable="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_PurchaseDetail_Items" FromRole="PurchaseDetail" ToRole="Items" />
+          <NavigationProperty Name="Purchase" Relationship="Self.FK_PurchaseDetail_Purchase" FromRole="PurchaseDetail" ToRole="Purchase" />
+          <Property Name="AddedQuantity" Type="Int32" Nullable="false" />
+          <Property Name="RemainQuantity" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReturnToSupplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReturnDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Reference" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApplicantCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApproverCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ComputerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ComputeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Approver" Relationship="Self.FK_ReturnToSupplier_Employees" FromRole="ReturnToSupplier" ToRole="Employees" />
+          <NavigationProperty Name="Applicant" Relationship="Self.FK_ReturnToSupplier_Employees1" FromRole="ReturnToSupplier" ToRole="Employees" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_ReturnToSupplier_Employees2" FromRole="ReturnToSupplier" ToRole="Employees" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_ReturnToSupplier_Projects" FromRole="ReturnToSupplier" ToRole="Projects" />
+          <NavigationProperty Name="ReturnToSupplierDetails" Relationship="Self.FK_ReturnToSupplierDetail_ReturnToSupplier" FromRole="ReturnToSupplier" ToRole="ReturnToSupplierDetail" />
+        </EntityType>
+        <EntityType Name="ReturnToSupplierDetail">
+          <Key>
+            <PropertyRef Name="MasterCode" />
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="MasterCode" Type="Int32" Nullable="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_ReturnToSupplierDetail_Items" FromRole="ReturnToSupplierDetail" ToRole="Items" />
+          <NavigationProperty Name="ReturnToSupplier" Relationship="Self.FK_ReturnToSupplierDetail_ReturnToSupplier" FromRole="ReturnToSupplierDetail" ToRole="ReturnToSupplier" />
+        </EntityType>
+        <EntityType Name="ReturnToWH">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReturnDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Reference" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApplicantCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApproverCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ComputerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ComputeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Approver" Relationship="Self.FK_ReturnToWH_Employees" FromRole="ReturnToWH" ToRole="Employees" />
+          <NavigationProperty Name="Applicant" Relationship="Self.FK_ReturnToWH_Employees1" FromRole="ReturnToWH" ToRole="Employees" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_ReturnToWH_Employees2" FromRole="ReturnToWH" ToRole="Employees" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_ReturnToWH_Projects" FromRole="ReturnToWH" ToRole="Projects" />
+          <NavigationProperty Name="ReturnToWHDetails" Relationship="Self.FK_ReturnToWHDetail_ReturnToWH" FromRole="ReturnToWH" ToRole="ReturnToWHDetail" />
+        </EntityType>
+        <EntityType Name="ReturnToWHDetail">
+          <Key>
+            <PropertyRef Name="MasterCode" />
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="MasterCode" Type="Int32" Nullable="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_ReturnToWHDetail_Items" FromRole="ReturnToWHDetail" ToRole="Items" />
+          <NavigationProperty Name="ReturnToWH" Relationship="Self.FK_ReturnToWHDetail_ReturnToWH" FromRole="ReturnToWHDetail" ToRole="ReturnToWH" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_Stock_Items" FromRole="Stock" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Purchases" Relationship="Self.FK_Purchase_Suppliers" FromRole="Suppliers" ToRole="Purchase" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_AdjustIn_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="AdjustIn" Type="Self.AdjustIn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="AdjustIn">
+              <PropertyRef Name="ComputerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdjustIn_Items">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="AdjustIn" Type="Self.AdjustIn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="AdjustIn">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdjustIn_Projects">
+          <End Role="Projects" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="AdjustIn" Type="Self.AdjustIn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdjustIn">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdjustOut_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="AdjustOut" Type="Self.AdjustOut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="AdjustOut">
+              <PropertyRef Name="ComputerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdjustOut_Items">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="AdjustOut" Type="Self.AdjustOut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="AdjustOut">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdjustOut_Projects">
+          <End Role="Projects" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="AdjustOut" Type="Self.AdjustOut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdjustOut">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_Categories">
+          <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Items" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comsumption_Items">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="Comsumption" Type="Self.Comsumption" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Comsumption">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Genders">
+          <End Role="Genders" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Positions">
+          <End Role="Positions" Type="Self.Position" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Positions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Issued_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Issued" Type="Self.Issued" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Issued">
+              <PropertyRef Name="ComputerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Issued_Employees1">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Issued" Type="Self.Issued" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Issued">
+              <PropertyRef Name="ApplicantCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="PurchaserCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Employees1">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="ComputerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToSupplier_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="ReturnToSupplier" Type="Self.ReturnToSupplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ReturnToSupplier">
+              <PropertyRef Name="ApproverCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToSupplier_Employees1">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="ReturnToSupplier" Type="Self.ReturnToSupplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ReturnToSupplier">
+              <PropertyRef Name="ApplicantCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToSupplier_Employees2">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="ReturnToSupplier" Type="Self.ReturnToSupplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ReturnToSupplier">
+              <PropertyRef Name="ComputerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToWH_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="ReturnToWH" Type="Self.ReturnToWH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ReturnToWH">
+              <PropertyRef Name="ApproverCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToWH_Employees1">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="ReturnToWH" Type="Self.ReturnToWH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ReturnToWH">
+              <PropertyRef Name="ApplicantCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToWH_Employees2">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="ReturnToWH" Type="Self.ReturnToWH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ReturnToWH">
+              <PropertyRef Name="ComputerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupplierUP_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="ItemPricing" Type="Self.ItemPricing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ItemPricing">
+              <PropertyRef Name="ComputerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Issued_Projects">
+          <End Role="Projects" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="Issued" Type="Self.Issued" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Issued">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IssuedDetail_Issued">
+          <End Role="Issued" Type="Self.Issued" Multiplicity="1" />
+          <End Role="IssuedDetail" Type="Self.IssuedDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Issued">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IssuedDetail">
+              <PropertyRef Name="MasterCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IssuedDetail_Items">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="IssuedDetail" Type="Self.IssuedDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="IssuedDetail">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupplierUP_Items">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="ItemPricing" Type="Self.ItemPricing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ItemPricing">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseDetail_Items">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="PurchaseDetail" Type="Self.PurchaseDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="PurchaseDetail">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToSupplierDetail_Items">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="ReturnToSupplierDetail" Type="Self.ReturnToSupplierDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ReturnToSupplierDetail">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToWHDetail_Items">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="ReturnToWHDetail" Type="Self.ReturnToWHDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ReturnToWHDetail">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Items">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="Stock" Type="Self.Stock" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToSupplier_Projects">
+          <End Role="Projects" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="ReturnToSupplier" Type="Self.ReturnToSupplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReturnToSupplier">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToWH_Projects">
+          <End Role="Projects" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="ReturnToWH" Type="Self.ReturnToWH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReturnToWH">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Suppliers">
+          <End Role="Suppliers" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="SupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseDetail_Purchase">
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="1" />
+          <End Role="PurchaseDetail" Type="Self.PurchaseDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseDetail">
+              <PropertyRef Name="MasterCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToSupplierDetail_ReturnToSupplier">
+          <End Role="ReturnToSupplier" Type="Self.ReturnToSupplier" Multiplicity="1" />
+          <End Role="ReturnToSupplierDetail" Type="Self.ReturnToSupplierDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReturnToSupplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReturnToSupplierDetail">
+              <PropertyRef Name="MasterCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnToWHDetail_ReturnToWH">
+          <End Role="ReturnToWH" Type="Self.ReturnToWH" Multiplicity="1" />
+          <End Role="ReturnToWHDetail" Type="Self.ReturnToWHDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReturnToWH">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReturnToWHDetail">
+              <PropertyRef Name="MasterCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MegaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdjustIns" EntityType="Self.AdjustIn" />
+          <EntitySet Name="AdjustOuts" EntityType="Self.AdjustOut" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Comsumptions" EntityType="Self.Comsumption" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Genders" EntityType="Self.Gender" />
+          <EntitySet Name="Issueds" EntityType="Self.Issued" />
+          <EntitySet Name="IssuedDetails" EntityType="Self.IssuedDetail" />
+          <EntitySet Name="ItemPricings" EntityType="Self.ItemPricing" />
+          <EntitySet Name="Items" EntityType="Self.Item" />
+          <EntitySet Name="Positions" EntityType="Self.Position" />
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <EntitySet Name="Provinces" EntityType="Self.Province" />
+          <EntitySet Name="Purchases" EntityType="Self.Purchase" />
+          <EntitySet Name="PurchaseDetails" EntityType="Self.PurchaseDetail" />
+          <EntitySet Name="ReturnToSuppliers" EntityType="Self.ReturnToSupplier" />
+          <EntitySet Name="ReturnToSupplierDetails" EntityType="Self.ReturnToSupplierDetail" />
+          <EntitySet Name="ReturnToWHs" EntityType="Self.ReturnToWH" />
+          <EntitySet Name="ReturnToWHDetails" EntityType="Self.ReturnToWHDetail" />
+          <EntitySet Name="Stocks" EntityType="Self.Stock" />
+          <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK_AdjustIn_Employees" Association="Self.FK_AdjustIn_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="AdjustIn" EntitySet="AdjustIns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdjustIn_Items" Association="Self.FK_AdjustIn_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="AdjustIn" EntitySet="AdjustIns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdjustIn_Projects" Association="Self.FK_AdjustIn_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="AdjustIn" EntitySet="AdjustIns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdjustOut_Employees" Association="Self.FK_AdjustOut_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="AdjustOut" EntitySet="AdjustOuts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdjustOut_Items" Association="Self.FK_AdjustOut_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="AdjustOut" EntitySet="AdjustOuts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdjustOut_Projects" Association="Self.FK_AdjustOut_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="AdjustOut" EntitySet="AdjustOuts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_Categories" Association="Self.FK_Items_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comsumption_Items" Association="Self.FK_Comsumption_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Comsumption" EntitySet="Comsumptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Genders" Association="Self.FK_Employees_Genders">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Positions" Association="Self.FK_Employees_Positions">
+            <End Role="Positions" EntitySet="Positions" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Issued_Employees" Association="Self.FK_Issued_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Issued" EntitySet="Issueds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Issued_Employees1" Association="Self.FK_Issued_Employees1">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Issued" EntitySet="Issueds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Employees" Association="Self.FK_Purchase_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Purchase" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Employees1" Association="Self.FK_Purchase_Employees1">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Purchase" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToSupplier_Employees" Association="Self.FK_ReturnToSupplier_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ReturnToSupplier" EntitySet="ReturnToSuppliers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToSupplier_Employees1" Association="Self.FK_ReturnToSupplier_Employees1">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ReturnToSupplier" EntitySet="ReturnToSuppliers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToSupplier_Employees2" Association="Self.FK_ReturnToSupplier_Employees2">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ReturnToSupplier" EntitySet="ReturnToSuppliers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToWH_Employees" Association="Self.FK_ReturnToWH_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ReturnToWH" EntitySet="ReturnToWHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToWH_Employees1" Association="Self.FK_ReturnToWH_Employees1">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ReturnToWH" EntitySet="ReturnToWHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToWH_Employees2" Association="Self.FK_ReturnToWH_Employees2">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ReturnToWH" EntitySet="ReturnToWHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplierUP_Employees" Association="Self.FK_SupplierUP_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ItemPricing" EntitySet="ItemPricings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Issued_Projects" Association="Self.FK_Issued_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Issued" EntitySet="Issueds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IssuedDetail_Issued" Association="Self.FK_IssuedDetail_Issued">
+            <End Role="Issued" EntitySet="Issueds" />
+            <End Role="IssuedDetail" EntitySet="IssuedDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IssuedDetail_Items" Association="Self.FK_IssuedDetail_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="IssuedDetail" EntitySet="IssuedDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplierUP_Items" Association="Self.FK_SupplierUP_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="ItemPricing" EntitySet="ItemPricings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseDetail_Items" Association="Self.FK_PurchaseDetail_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="PurchaseDetail" EntitySet="PurchaseDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToSupplierDetail_Items" Association="Self.FK_ReturnToSupplierDetail_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="ReturnToSupplierDetail" EntitySet="ReturnToSupplierDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToWHDetail_Items" Association="Self.FK_ReturnToWHDetail_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="ReturnToWHDetail" EntitySet="ReturnToWHDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Items" Association="Self.FK_Stock_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Stock" EntitySet="Stocks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToSupplier_Projects" Association="Self.FK_ReturnToSupplier_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="ReturnToSupplier" EntitySet="ReturnToSuppliers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToWH_Projects" Association="Self.FK_ReturnToWH_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="ReturnToWH" EntitySet="ReturnToWHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Suppliers" Association="Self.FK_Purchase_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="Purchase" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseDetail_Purchase" Association="Self.FK_PurchaseDetail_Purchase">
+            <End Role="Purchase" EntitySet="Purchases" />
+            <End Role="PurchaseDetail" EntitySet="PurchaseDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToSupplierDetail_ReturnToSupplier" Association="Self.FK_ReturnToSupplierDetail_ReturnToSupplier">
+            <End Role="ReturnToSupplier" EntitySet="ReturnToSuppliers" />
+            <End Role="ReturnToSupplierDetail" EntitySet="ReturnToSupplierDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnToWHDetail_ReturnToWH" Association="Self.FK_ReturnToWHDetail_ReturnToWH">
+            <End Role="ReturnToWH" EntitySet="ReturnToWHs" />
+            <End Role="ReturnToWHDetail" EntitySet="ReturnToWHDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MegaModelStoreContainer" CdmEntityContainer="MegaEntities">
+          <EntitySetMapping Name="AdjustIns">
+            <EntityTypeMapping TypeName="MegaModel.AdjustIn">
+              <MappingFragment StoreEntitySet="AdjustIn">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AdjustInDate" ColumnName="AdjustInDate" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ComputerCode" ColumnName="ComputerCode" />
+                <ScalarProperty Name="ComputeTime" ColumnName="ComputeTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdjustOuts">
+            <EntityTypeMapping TypeName="MegaModel.AdjustOut">
+              <MappingFragment StoreEntitySet="AdjustOut">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AdjustOutDate" ColumnName="AdjustOutDate" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ComputerCode" ColumnName="ComputerCode" />
+                <ScalarProperty Name="ComputeTime" ColumnName="ComputeTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="MegaModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comsumptions">
+            <EntityTypeMapping TypeName="MegaModel.Comsumption">
+              <MappingFragment StoreEntitySet="Comsumption">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ComsumtionDate" ColumnName="ComsumtionDate" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Jan" ColumnName="Jan" />
+                <ScalarProperty Name="Feb" ColumnName="Feb" />
+                <ScalarProperty Name="Mar" ColumnName="Mar" />
+                <ScalarProperty Name="Apr" ColumnName="Apr" />
+                <ScalarProperty Name="May" ColumnName="May" />
+                <ScalarProperty Name="Jun" ColumnName="Jun" />
+                <ScalarProperty Name="Jul" ColumnName="Jul" />
+                <ScalarProperty Name="Aug" ColumnName="Aug" />
+                <ScalarProperty Name="Sep" ColumnName="Sep" />
+                <ScalarProperty Name="Oct" ColumnName="Oct" />
+                <ScalarProperty Name="Nov" ColumnName="Nov" />
+                <ScalarProperty Name="Dec" ColumnName="Dec" />
+                <ScalarProperty Name="WeeklyAverage" ColumnName="WeeklyAverage" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="GrandAmount" ColumnName="GrandAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="MegaModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="EmployeeNameKh" ColumnName="EmployeeNameKh" />
+                <ScalarProperty Name="EmployeeNameEn" ColumnName="EmployeeNameEn" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+                <ScalarProperty Name="CurrentAddress" ColumnName="CurrentAddress" />
+                <ScalarProperty Name="NationalId" ColumnName="NationalId" />
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="StartWorkDate" ColumnName="StartWorkDate" />
+                <ScalarProperty Name="StopWorkDate" ColumnName="StopWorkDate" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="MegaModel.Gender">
+              <MappingFragment StoreEntitySet="Genders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Issueds">
+            <EntityTypeMapping TypeName="MegaModel.Issued">
+              <MappingFragment StoreEntitySet="Issued">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IssuedDate" ColumnName="IssuedDate" />
+                <ScalarProperty Name="Reference1" ColumnName="Reference1" />
+                <ScalarProperty Name="Reference2" ColumnName="Reference2" />
+                <ScalarProperty Name="ApplicantCode" ColumnName="ApplicantCode" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+                <ScalarProperty Name="Car" ColumnName="Car" />
+                <ScalarProperty Name="ComputerCode" ColumnName="ComputerCode" />
+                <ScalarProperty Name="ComputeTime" ColumnName="ComputeTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IssuedDetails">
+            <EntityTypeMapping TypeName="MegaModel.IssuedDetail">
+              <MappingFragment StoreEntitySet="IssuedDetail">
+                <ScalarProperty Name="MasterCode" ColumnName="MasterCode" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemPricings">
+            <EntityTypeMapping TypeName="MegaModel.ItemPricing">
+              <MappingFragment StoreEntitySet="ItemPricing">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="NotedDate" ColumnName="NotedDate" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="ComputerCode" ColumnName="ComputerCode" />
+                <ScalarProperty Name="ComputeTime" ColumnName="ComputeTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="MegaModel.Item">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="CurrentPrice" ColumnName="CurrentPrice" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="MegaModel.Position">
+              <MappingFragment StoreEntitySet="Positions">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="MegaModel.Project">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provinces">
+            <EntityTypeMapping TypeName="MegaModel.Province">
+              <MappingFragment StoreEntitySet="Provinces">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchases">
+            <EntityTypeMapping TypeName="MegaModel.Purchase">
+              <MappingFragment StoreEntitySet="Purchase">
+                <ScalarProperty Name="IsLock" ColumnName="IsLock" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="PurchaserCode" ColumnName="PurchaserCode" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="PRNO" ColumnName="PRNO" />
+                <ScalarProperty Name="BuyFrom" ColumnName="BuyFrom" />
+                <ScalarProperty Name="ComputerCode" ColumnName="ComputerCode" />
+                <ScalarProperty Name="ComputeTime" ColumnName="ComputeTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseDetails">
+            <EntityTypeMapping TypeName="MegaModel.PurchaseDetail">
+              <MappingFragment StoreEntitySet="PurchaseDetail">
+                <ScalarProperty Name="RemainQuantity" ColumnName="RemainQuantity" />
+                <ScalarProperty Name="AddedQuantity" ColumnName="AddedQuantity" />
+                <ScalarProperty Name="MasterCode" ColumnName="MasterCode" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReturnToSuppliers">
+            <EntityTypeMapping TypeName="MegaModel.ReturnToSupplier">
+              <MappingFragment StoreEntitySet="ReturnToSupplier">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="ApplicantCode" ColumnName="ApplicantCode" />
+                <ScalarProperty Name="ApproverCode" ColumnName="ApproverCode" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ComputerCode" ColumnName="ComputerCode" />
+                <ScalarProperty Name="ComputeTime" ColumnName="ComputeTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReturnToSupplierDetails">
+            <EntityTypeMapping TypeName="MegaModel.ReturnToSupplierDetail">
+              <MappingFragment StoreEntitySet="ReturnToSupplierDetail">
+                <ScalarProperty Name="MasterCode" ColumnName="MasterCode" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReturnToWHs">
+            <EntityTypeMapping TypeName="MegaModel.ReturnToWH">
+              <MappingFragment StoreEntitySet="ReturnToWH">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="ApplicantCode" ColumnName="ApplicantCode" />
+                <ScalarProperty Name="ApproverCode" ColumnName="ApproverCode" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ComputerCode" ColumnName="ComputerCode" />
+                <ScalarProperty Name="ComputeTime" ColumnName="ComputeTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReturnToWHDetails">
+            <EntityTypeMapping TypeName="MegaModel.ReturnToWHDetail">
+              <MappingFragment StoreEntitySet="ReturnToWHDetail">
+                <ScalarProperty Name="MasterCode" ColumnName="MasterCode" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stocks">
+            <EntityTypeMapping TypeName="MegaModel.Stock">
+              <MappingFragment StoreEntitySet="Stock">
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="MegaModel.Supplier">
+              <MappingFragment StoreEntitySet="Suppliers">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MegaModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
