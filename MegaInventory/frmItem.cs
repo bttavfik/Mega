@@ -27,9 +27,7 @@ namespace MegaInventory
         {
             this.Close();
         }
-
-
-
+        
         private void AddNewItem()
         {
             var item = new Item()
@@ -173,9 +171,7 @@ namespace MegaInventory
 
             dgvList.Rows.Add((dgvList.Rows.Count+1), itemPrice.NotedDate, itemPrice.UnitPrice.ToString("C2"));
         }
-
-
-
+        
         private void txtNewPrice_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)

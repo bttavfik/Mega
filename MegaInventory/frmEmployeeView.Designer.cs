@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblDelete = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dgvList = new System.Windows.Forms.DataGridView();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.dgvList = new System.Windows.Forms.DataGridView();
             this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRefer1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +50,6 @@
             this.colCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
@@ -58,9 +60,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(21, 84);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 22);
+            this.label1.Size = new System.Drawing.Size(155, 22);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Additional Information";
+            this.label1.Text = "Additional Information :";
             // 
             // btnNew
             // 
@@ -70,6 +72,7 @@
             this.btnNew.TabIndex = 3;
             this.btnNew.Text = "New";
             this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnPrint
             // 
@@ -88,6 +91,7 @@
             this.btnView.TabIndex = 3;
             this.btnView.Text = "View";
             this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // label3
             // 
@@ -102,6 +106,7 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.lblDelete);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Font = new System.Drawing.Font("Khmer OS Siemreap", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(911, 12);
@@ -109,9 +114,20 @@
             this.panel2.Size = new System.Drawing.Size(261, 537);
             this.panel2.TabIndex = 6;
             // 
+            // lblDelete
+            // 
+            this.lblDelete.AutoSize = true;
+            this.lblDelete.Image = global::MegaInventory.Properties.Resources.Cancel_20px;
+            this.lblDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblDelete.Location = new System.Drawing.Point(177, 84);
+            this.lblDelete.Name = "lblDelete";
+            this.lblDelete.Size = new System.Drawing.Size(81, 22);
+            this.lblDelete.TabIndex = 13;
+            this.lblDelete.Text = "     Deleted";
+            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtSearch);
             this.panel1.Controls.Add(this.btnNew);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnPrint);
@@ -122,6 +138,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(900, 78);
             this.panel1.TabIndex = 5;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(63, 30);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(300, 29);
+            this.txtSearch.TabIndex = 4;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(692, 31);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(100, 30);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // dgvList
             // 
@@ -135,6 +169,7 @@
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNo,
+            this.Column3,
             this.colDate,
             this.Column1,
             this.colRefer1,
@@ -143,25 +178,19 @@
             this.colCar,
             this.Column2,
             this.colProject});
-            this.dgvList.Location = new System.Drawing.Point(12, 96);
+            this.dgvList.Location = new System.Drawing.Point(5, 96);
             this.dgvList.Name = "dgvList";
             this.dgvList.ReadOnly = true;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvList.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvList.RowHeadersVisible = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvList.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvList.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Khmer OS Siemreap", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvList.RowTemplate.Height = 30;
             this.dgvList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvList.Size = new System.Drawing.Size(900, 453);
             this.dgvList.TabIndex = 4;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(692, 31);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(100, 30);
-            this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.dgvList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellClick);
             // 
             // colNo
             // 
@@ -170,6 +199,13 @@
             this.colNo.Name = "colNo";
             this.colNo.ReadOnly = true;
             this.colNo.Width = 75;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Code";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Visible = false;
             // 
             // colDate
             // 
@@ -237,13 +273,6 @@
             this.colProject.ReadOnly = true;
             this.colProject.Width = 200;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(63, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 29);
-            this.textBox1.TabIndex = 4;
-            // 
             // frmEmployeeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,6 +283,7 @@
             this.Controls.Add(this.dgvList);
             this.Name = "frmEmployeeView";
             this.Text = "Employee view";
+            this.Load += new System.EventHandler(this.frmEmployeeView_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -274,7 +304,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvList;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label lblDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRefer1;
@@ -283,6 +316,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProject;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

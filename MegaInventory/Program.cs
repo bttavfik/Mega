@@ -16,7 +16,7 @@ namespace MegaInventory
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPurchaseView());
+            Application.Run(new frmStockView());
         }
     }
 }

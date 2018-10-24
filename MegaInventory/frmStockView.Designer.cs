@@ -32,19 +32,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnNew = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnView = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvList = new System.Windows.Forms.DataGridView();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRefer1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRefer2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colApplicant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAdjustOut = new System.Windows.Forms.Button();
+            this.btnAjustIn = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.panel1.SuspendLayout();
@@ -78,24 +79,7 @@
             this.btnNew.TabIndex = 3;
             this.btnNew.Text = "New";
             this.btnNew.UseVisualStyleBackColor = true;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(687, 33);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(100, 30);
-            this.btnEdit.TabIndex = 3;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            // 
-            // btnView
-            // 
-            this.btnView.Location = new System.Drawing.Point(581, 33);
-            this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(100, 30);
-            this.btnView.TabIndex = 3;
-            this.btnView.Text = "View";
-            this.btnView.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // label3
             // 
@@ -122,47 +106,20 @@
             this.Column1,
             this.colRefer1,
             this.colRefer2,
+            this.quantity,
             this.colApplicant});
             this.dgvList.Location = new System.Drawing.Point(12, 96);
             this.dgvList.Name = "dgvList";
             this.dgvList.ReadOnly = true;
+            this.dgvList.RowHeadersVisible = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvList.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvList.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Khmer OS Siemreap", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvList.RowTemplate.Height = 30;
             this.dgvList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvList.Size = new System.Drawing.Size(900, 453);
             this.dgvList.TabIndex = 4;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(63, 34);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(350, 29);
-            this.txtSearch.TabIndex = 4;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.txtSearch);
-            this.panel1.Controls.Add(this.btnNew);
-            this.panel1.Controls.Add(this.btnDelete);
-            this.panel1.Controls.Add(this.btnEdit);
-            this.panel1.Controls.Add(this.btnView);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Font = new System.Drawing.Font("Khmer OS Siemreap", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(900, 78);
-            this.panel1.TabIndex = 5;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(793, 33);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(100, 30);
-            this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // colNo
             // 
@@ -201,7 +158,12 @@
             this.colRefer2.HeaderText = "UOM";
             this.colRefer2.Name = "colRefer2";
             this.colRefer2.ReadOnly = true;
-            this.colRefer2.Width = 120;
+            // 
+            // quantity
+            // 
+            this.quantity.HeaderText = "Quantity";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
             // 
             // colApplicant
             // 
@@ -210,6 +172,57 @@
             this.colApplicant.Name = "colApplicant";
             this.colApplicant.ReadOnly = true;
             this.colApplicant.Width = 120;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(63, 34);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(350, 29);
+            this.txtSearch.TabIndex = 4;
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnAdjustOut);
+            this.panel1.Controls.Add(this.btnAjustIn);
+            this.panel1.Controls.Add(this.txtSearch);
+            this.panel1.Controls.Add(this.btnNew);
+            this.panel1.Controls.Add(this.btnDelete);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Font = new System.Drawing.Font("Khmer OS Siemreap", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(900, 78);
+            this.panel1.TabIndex = 5;
+            // 
+            // btnAdjustOut
+            // 
+            this.btnAdjustOut.Location = new System.Drawing.Point(687, 33);
+            this.btnAdjustOut.Name = "btnAdjustOut";
+            this.btnAdjustOut.Size = new System.Drawing.Size(100, 30);
+            this.btnAdjustOut.TabIndex = 6;
+            this.btnAdjustOut.Text = "Adjust Out";
+            this.btnAdjustOut.UseVisualStyleBackColor = true;
+            this.btnAdjustOut.Click += new System.EventHandler(this.btnAdjustOut_Click);
+            // 
+            // btnAjustIn
+            // 
+            this.btnAjustIn.Location = new System.Drawing.Point(581, 33);
+            this.btnAjustIn.Name = "btnAjustIn";
+            this.btnAjustIn.Size = new System.Drawing.Size(100, 30);
+            this.btnAjustIn.TabIndex = 5;
+            this.btnAjustIn.Text = "Adjust In";
+            this.btnAjustIn.UseVisualStyleBackColor = true;
+            this.btnAjustIn.Click += new System.EventHandler(this.btnAjustIn_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(793, 33);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(100, 30);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // frmStockView
             // 
@@ -221,6 +234,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmStockView";
             this.Text = "Stock live view";
+            this.Load += new System.EventHandler(this.frmStockView_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
@@ -234,8 +248,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnView;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvList;
         private System.Windows.Forms.TextBox txtSearch;
@@ -246,6 +258,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRefer1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRefer2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn colApplicant;
+        private System.Windows.Forms.Button btnAdjustOut;
+        private System.Windows.Forms.Button btnAjustIn;
     }
 }

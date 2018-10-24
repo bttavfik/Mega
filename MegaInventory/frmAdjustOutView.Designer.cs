@@ -1,6 +1,6 @@
 ﻿namespace MegaInventory
 {
-    partial class frmReturnToWHView
+    partial class frmAdjustOutView
     {
         /// <summary>
         /// Required designer variable.
@@ -29,19 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.dgvList = new System.Windows.Forms.DataGridView();
-            this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRefer1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRefer2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colApplicant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnShow = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
@@ -51,30 +39,21 @@
             this.dtpUntil = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel2.SuspendLayout();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRefer1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRefer2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colApplicant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Font = new System.Drawing.Font("Khmer OS Siemreap", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(911, 12);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(261, 537);
-            this.panel2.TabIndex = 9;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 84);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 22);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Additional Information";
             // 
             // dgvList
             // 
@@ -88,15 +67,14 @@
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNo,
-            this.Id,
+            this.id,
             this.colDate,
             this.colRefer1,
             this.colRefer2,
             this.colApplicant,
             this.colProject,
-            this.colItem,
-            this.colTotal,
-            this.colCar});
+            this.colCar,
+            this.Column1});
             this.dgvList.Location = new System.Drawing.Point(12, 96);
             this.dgvList.Name = "dgvList";
             this.dgvList.ReadOnly = true;
@@ -108,88 +86,8 @@
             this.dgvList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvList.Size = new System.Drawing.Size(900, 453);
-            this.dgvList.TabIndex = 7;
+            this.dgvList.TabIndex = 10;
             this.dgvList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellClick);
-            // 
-            // colNo
-            // 
-            this.colNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colNo.HeaderText = "No";
-            this.colNo.Name = "colNo";
-            this.colNo.ReadOnly = true;
-            this.colNo.Width = 75;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // colDate
-            // 
-            this.colDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colDate.HeaderText = "Returned Date";
-            this.colDate.Name = "colDate";
-            this.colDate.ReadOnly = true;
-            this.colDate.Width = 200;
-            // 
-            // colRefer1
-            // 
-            this.colRefer1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colRefer1.HeaderText = "Reference";
-            this.colRefer1.Name = "colRefer1";
-            this.colRefer1.ReadOnly = true;
-            this.colRefer1.Width = 120;
-            // 
-            // colRefer2
-            // 
-            this.colRefer2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colRefer2.HeaderText = "Applicant";
-            this.colRefer2.Name = "colRefer2";
-            this.colRefer2.ReadOnly = true;
-            this.colRefer2.Width = 120;
-            // 
-            // colApplicant
-            // 
-            this.colApplicant.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colApplicant.HeaderText = "Approver";
-            this.colApplicant.Name = "colApplicant";
-            this.colApplicant.ReadOnly = true;
-            this.colApplicant.Width = 200;
-            // 
-            // colProject
-            // 
-            this.colProject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colProject.HeaderText = "Project";
-            this.colProject.Name = "colProject";
-            this.colProject.ReadOnly = true;
-            this.colProject.Width = 200;
-            // 
-            // colItem
-            // 
-            this.colItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colItem.HeaderText = "Items";
-            this.colItem.Name = "colItem";
-            this.colItem.ReadOnly = true;
-            this.colItem.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colItem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colItem.Width = 250;
-            // 
-            // colTotal
-            // 
-            this.colTotal.HeaderText = "Total";
-            this.colTotal.MinimumWidth = 130;
-            this.colTotal.Name = "colTotal";
-            this.colTotal.ReadOnly = true;
-            // 
-            // colCar
-            // 
-            this.colCar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colCar.HeaderText = "Remark";
-            this.colCar.Name = "colCar";
-            this.colCar.ReadOnly = true;
-            this.colCar.Width = 150;
             // 
             // panel1
             // 
@@ -205,7 +103,7 @@
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(900, 78);
-            this.panel1.TabIndex = 8;
+            this.panel1.TabIndex = 11;
             // 
             // btnShow
             // 
@@ -280,30 +178,125 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "ស្វែងរកតាម កាលបរិច្ឆេទ :";
             // 
-            // frmReturnToWHView
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Font = new System.Drawing.Font("Khmer OS Siemreap", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.Location = new System.Drawing.Point(911, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(261, 537);
+            this.panel2.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 84);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(146, 22);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Additional Information";
+            // 
+            // colNo
+            // 
+            this.colNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colNo.HeaderText = "No";
+            this.colNo.Name = "colNo";
+            this.colNo.ReadOnly = true;
+            this.colNo.Width = 75;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // colDate
+            // 
+            this.colDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colDate.HeaderText = "Adjusted Out Date";
+            this.colDate.Name = "colDate";
+            this.colDate.ReadOnly = true;
+            this.colDate.Width = 170;
+            // 
+            // colRefer1
+            // 
+            this.colRefer1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colRefer1.HeaderText = "Reference";
+            this.colRefer1.Name = "colRefer1";
+            this.colRefer1.ReadOnly = true;
+            this.colRefer1.Width = 150;
+            // 
+            // colRefer2
+            // 
+            this.colRefer2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colRefer2.HeaderText = "Item";
+            this.colRefer2.Name = "colRefer2";
+            this.colRefer2.ReadOnly = true;
+            this.colRefer2.Width = 170;
+            // 
+            // colApplicant
+            // 
+            this.colApplicant.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colApplicant.HeaderText = "UnitPrice";
+            this.colApplicant.Name = "colApplicant";
+            this.colApplicant.ReadOnly = true;
+            // 
+            // colProject
+            // 
+            this.colProject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colProject.HeaderText = "Quantity";
+            this.colProject.Name = "colProject";
+            this.colProject.ReadOnly = true;
+            // 
+            // colCar
+            // 
+            this.colCar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar.HeaderText = "Amount";
+            this.colCar.Name = "colCar";
+            this.colCar.ReadOnly = true;
+            this.colCar.Width = 200;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Remark";
+            this.Column1.MinimumWidth = 200;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // frmAdjustOutView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 561);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.dgvList);
             this.Controls.Add(this.panel1);
-            this.Name = "frmReturnToWHView";
-            this.Text = "Return to wearhouse view";
-            this.Load += new System.EventHandler(this.frmReturnToWHView_Load);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.Controls.Add(this.panel2);
+            this.Name = "frmAdjustOutView";
+            this.Text = "frmAdjustOutView";
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
+
         private System.Windows.Forms.DataGridView dgvList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRefer1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRefer2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colApplicant;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProject;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnShow;
         private System.Windows.Forms.Button btnNew;
@@ -313,15 +306,7 @@
         private System.Windows.Forms.DateTimePicker dtpUntil;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRefer1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRefer2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colApplicant;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProject;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCar;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
     }
 }

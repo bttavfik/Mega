@@ -12,28 +12,33 @@ using System.Data.Entity;
 
 namespace MegaInventory
 {
-    public partial class frmAdjustmentView : Form
+    public partial class frmAdjustOutView : Form
     {
-        public frmAdjustmentView()
+        public frmAdjustOutView()
         {
             InitializeComponent();
         }
 
         MegaEntities mega = new MegaEntities();
 
-        void loadAdjustIn()
+        void loadAdjustOut()
         {
             int i = 1;
-            var loadadjIn = mega.AdjustIns.ToList();
-            foreach (var item in loadadjIn)
+            var loadadjOut = mega.AdjustOuts.ToList();
+            foreach (var item in loadadjOut)
             {
-                dgvList.Rows.Add(i++, item.Id, item.AdjustInDate, item.Reference, item.Item.Description, "$"+item.UnitPrice, item.Quantity,"$"+ item.Amount, item.Remark);
+                dgvList.Rows.Add(i++, item.Id, item.AdjustOutDate, item.Reference, item.Item.Description, "$" + item.UnitPrice, item.Quantity, "$" + item.Amount, item.Remark);
             }
         }
 
-        private void frmAdjustmentView_Load(object sender, EventArgs e)
+        private void btnNew_Click(object sender, EventArgs e)
         {
-            loadAdjustIn();
+            frmAdjustOut frm = new frmAdjustOut();
+            frm.Edit_Flage = false;
+            frm.ShowDialog();
+
+            dgvList.Rows.Clear();
+            this.loadAdjustOut();
         }
 
         private void btnView_Click(object sender, EventArgs e)
@@ -46,25 +51,14 @@ namespace MegaInventory
                 frm.ShowDialog();
 
                 dgvList.Rows.Clear();
-                this.loadAdjustIn();
+                this.loadAdjustOut();
                 this.rowIdex = -1;
             }
-            
-        }
-
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            frmAdjustIn frm = new frmAdjustIn();
-            frm.Edit_Flage = false;
-            frm.ShowDialog();
-
-            this.dgvList.Rows.Clear();
-            this.loadAdjustIn();
         }
 
         int Id; //get id from datagridview cell click
 
-        int rowIdex=-1;    //get row index from datagrid
+        int rowIdex = -1;    //get row index from datagrid
 
         private void dgvList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -81,10 +75,10 @@ namespace MegaInventory
         {
             dgvList.Rows.Clear();
             int i = 1;
-            var search = mega.AdjustIns.Where(x => x.AdjustInDate >= dtpFrom.Value && x.AdjustInDate <= dtpUntil.Value).ToList();
+            var search = mega.AdjustOuts.Where(x => x.AdjustOutDate >= dtpFrom.Value && x.AdjustOutDate <= dtpUntil.Value).ToList();
             foreach (var item in search)
             {
-                dgvList.Rows.Add(i++, item.Id, item.AdjustInDate, item.Reference, item.Item.Description, "$" + item.UnitPrice, item.Quantity, "$" + item.Amount, item.Remark);
+                dgvList.Rows.Add(i++, item.Id, item.AdjustOutDate, item.Reference, item.Item.Description, "$" + item.UnitPrice, item.Quantity, "$" + item.Amount, item.Remark);
             }
         }
 

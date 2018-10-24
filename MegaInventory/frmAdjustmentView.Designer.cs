@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnShow = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -39,23 +37,23 @@
             this.dtpUntil = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dgvList = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvList = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRefer1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRefer2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colApplicant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.SuspendLayout();
             // 
             // btnShow
@@ -66,6 +64,7 @@
             this.btnShow.TabIndex = 3;
             this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // btnNew
             // 
@@ -75,6 +74,7 @@
             this.btnNew.TabIndex = 3;
             this.btnNew.Text = "New";
             this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnPrint
             // 
@@ -93,6 +93,7 @@
             this.btnView.TabIndex = 3;
             this.btnView.Text = "View";
             this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // dtpFrom
             // 
@@ -127,38 +128,6 @@
             this.label3.Size = new System.Drawing.Size(133, 22);
             this.label3.TabIndex = 1;
             this.label3.Text = "ស្វែងរកតាម កាលបរិច្ឆេទ :";
-            // 
-            // dgvList
-            // 
-            this.dgvList.AllowUserToAddRows = false;
-            this.dgvList.AllowUserToDeleteRows = false;
-            this.dgvList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvList.ColumnHeadersHeight = 30;
-            this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colNo,
-            this.colDate,
-            this.colRefer1,
-            this.colRefer2,
-            this.colItem,
-            this.colTotal,
-            this.colApplicant,
-            this.colProject,
-            this.colCar,
-            this.Column1});
-            this.dgvList.Location = new System.Drawing.Point(12, 96);
-            this.dgvList.Name = "dgvList";
-            this.dgvList.ReadOnly = true;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvList.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvList.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Khmer OS Siemreap", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvList.RowTemplate.Height = 30;
-            this.dgvList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvList.Size = new System.Drawing.Size(900, 453);
-            this.dgvList.TabIndex = 7;
             // 
             // panel1
             // 
@@ -201,13 +170,61 @@
             this.colNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colNo.HeaderText = "No";
             this.colNo.Name = "colNo";
-            this.colNo.ReadOnly = true;
             this.colNo.Width = 75;
+            // 
+            // dgvList
+            // 
+            this.dgvList.AllowUserToAddRows = false;
+            this.dgvList.AllowUserToDeleteRows = false;
+            this.dgvList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvList.ColumnHeadersHeight = 30;
+            this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.Column2,
+            this.colDate,
+            this.colRefer1,
+            this.colRefer2,
+            this.colApplicant,
+            this.colProject,
+            this.colCar,
+            this.Column1});
+            this.dgvList.Location = new System.Drawing.Point(12, 96);
+            this.dgvList.Name = "dgvList";
+            this.dgvList.ReadOnly = true;
+            this.dgvList.RowHeadersVisible = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvList.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvList.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Khmer OS Siemreap", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvList.RowTemplate.Height = 30;
+            this.dgvList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvList.Size = new System.Drawing.Size(900, 453);
+            this.dgvList.TabIndex = 11;
+            this.dgvList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn1.HeaderText = "No";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 75;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Id";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Visible = false;
             // 
             // colDate
             // 
             this.colDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colDate.HeaderText = "Adjusted Date";
+            this.colDate.HeaderText = "Adjusted In Date";
             this.colDate.Name = "colDate";
             this.colDate.ReadOnly = true;
             this.colDate.Width = 170;
@@ -227,26 +244,6 @@
             this.colRefer2.Name = "colRefer2";
             this.colRefer2.ReadOnly = true;
             this.colRefer2.Width = 170;
-            // 
-            // colItem
-            // 
-            this.colItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.colItem.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colItem.HeaderText = "Add-In";
-            this.colItem.Name = "colItem";
-            this.colItem.ReadOnly = true;
-            this.colItem.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colItem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // colTotal
-            // 
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            this.colTotal.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colTotal.HeaderText = "Add-Out";
-            this.colTotal.MinimumWidth = 130;
-            this.colTotal.Name = "colTotal";
-            this.colTotal.ReadOnly = true;
             // 
             // colApplicant
             // 
@@ -287,11 +284,12 @@
             this.Controls.Add(this.panel2);
             this.Name = "frmAdjustmentView";
             this.Text = "Adjustment view";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
+            this.Load += new System.EventHandler(this.frmAdjustmentView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -305,16 +303,16 @@
         private System.Windows.Forms.DateTimePicker dtpUntil;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dgvList;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNo;
+        private System.Windows.Forms.DataGridView dgvList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRefer1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRefer2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn colApplicant;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProject;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCar;

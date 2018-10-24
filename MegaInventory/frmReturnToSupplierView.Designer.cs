@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btnShow = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
@@ -42,12 +42,13 @@
             this.dgvList = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRefer1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRefer2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colApplicant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colItem = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
@@ -72,6 +73,7 @@
             this.btnShow.TabIndex = 3;
             this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // btnNew
             // 
@@ -81,6 +83,7 @@
             this.btnNew.TabIndex = 3;
             this.btnNew.Text = "New";
             this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnPrint
             // 
@@ -99,6 +102,7 @@
             this.btnView.TabIndex = 3;
             this.btnView.Text = "View";
             this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // dtpFrom
             // 
@@ -157,6 +161,7 @@
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNo,
+            this.Id,
             this.colDate,
             this.colRefer1,
             this.colRefer2,
@@ -168,13 +173,16 @@
             this.dgvList.Location = new System.Drawing.Point(12, 96);
             this.dgvList.Name = "dgvList";
             this.dgvList.ReadOnly = true;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvList.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvList.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvList.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvList.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Khmer OS Siemreap", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvList.RowTemplate.Height = 30;
             this.dgvList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvList.Size = new System.Drawing.Size(900, 453);
             this.dgvList.TabIndex = 4;
+            this.dgvList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellClick);
             // 
             // panel1
             // 
@@ -199,6 +207,13 @@
             this.colNo.Name = "colNo";
             this.colNo.ReadOnly = true;
             this.colNo.Width = 75;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
             // 
             // colDate
             // 
@@ -246,6 +261,8 @@
             this.colItem.HeaderText = "Items";
             this.colItem.Name = "colItem";
             this.colItem.ReadOnly = true;
+            this.colItem.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colItem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colItem.Width = 250;
             // 
             // colTotal
@@ -273,6 +290,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmReturnToSupplierView";
             this.Text = "Return to supplier view";
+            this.Load += new System.EventHandler(this.frmReturnToSupplierView_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
@@ -297,12 +315,13 @@
         private System.Windows.Forms.DataGridView dgvList;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRefer1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRefer2;
         private System.Windows.Forms.DataGridViewTextBoxColumn colApplicant;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProject;
-        private System.Windows.Forms.DataGridViewComboBoxColumn colItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCar;
     }

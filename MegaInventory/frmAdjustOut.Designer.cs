@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblSaved = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.txtRemark = new System.Windows.Forms.RichTextBox();
             this.dtpAddustDate = new System.Windows.Forms.DateTimePicker();
             this.cboProject = new System.Windows.Forms.ComboBox();
@@ -49,12 +52,14 @@
             this.btnNewItem = new System.Windows.Forms.Button();
             this.btnNewProject = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
+            this.errorMS = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorMS)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblSaved);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.txtRemark);
             this.panel1.Controls.Add(this.dtpAddustDate);
@@ -82,6 +87,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(717, 381);
             this.panel1.TabIndex = 2;
+            // 
+            // lblSaved
+            // 
+            this.lblSaved.AutoSize = true;
+            this.lblSaved.Image = global::MegaInventory.Properties.Resources._checked;
+            this.lblSaved.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblSaved.Location = new System.Drawing.Point(383, 343);
+            this.lblSaved.Name = "lblSaved";
+            this.lblSaved.Size = new System.Drawing.Size(62, 22);
+            this.lblSaved.TabIndex = 11;
+            this.lblSaved.Text = "     Saved";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Image = global::MegaInventory.Properties.Resources.creative;
+            this.label15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label15.Location = new System.Drawing.Point(12, 343);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(363, 22);
+            this.label15.TabIndex = 10;
+            this.label15.Text = "     ព័តមានទាំងអស់នឹងមិនអនុញ្ញាតិអោយ កែ ឬលុប បន្ទាប់ពីចុចប៊ូតុង Save";
             // 
             // txtRemark
             // 
@@ -193,6 +220,7 @@
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(250, 29);
             this.txtQuantity.TabIndex = 5;
+            this.txtQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantity_KeyPress);
             // 
             // txtUnitPrice
             // 
@@ -207,6 +235,7 @@
             this.txtItemCode.Name = "txtItemCode";
             this.txtItemCode.Size = new System.Drawing.Size(250, 29);
             this.txtItemCode.TabIndex = 5;
+            this.txtItemCode.TextChanged += new System.EventHandler(this.txtItemCode_TextChanged);
             // 
             // txtReference
             // 
@@ -223,6 +252,7 @@
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnNewItem
             // 
@@ -232,6 +262,7 @@
             this.btnNewItem.TabIndex = 2;
             this.btnNewItem.Text = "N";
             this.btnNewItem.UseVisualStyleBackColor = true;
+            this.btnNewItem.Click += new System.EventHandler(this.btnNewItem_Click);
             // 
             // btnNewProject
             // 
@@ -241,6 +272,7 @@
             this.btnNewProject.TabIndex = 2;
             this.btnNewProject.Text = "N";
             this.btnNewProject.UseVisualStyleBackColor = true;
+            this.btnNewProject.Click += new System.EventHandler(this.btnNewProject_Click);
             // 
             // btnCancel
             // 
@@ -251,16 +283,9 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // label15
+            // errorMS
             // 
-            this.label15.AutoSize = true;
-            this.label15.Image = global::MegaInventory.Properties.Resources.creative;
-            this.label15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label15.Location = new System.Drawing.Point(12, 343);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(363, 22);
-            this.label15.TabIndex = 10;
-            this.label15.Text = "     ព័តមានទាំងអស់នឹងមិនអនុញ្ញាតិអោយ កែ ឬលុប បន្ទាប់ពីចុចប៊ូតុង Save";
+            this.errorMS.ContainerControl = this;
             // 
             // frmAdjustOut
             // 
@@ -270,8 +295,10 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmAdjustOut";
             this.Text = "Adjust Out";
+            this.Load += new System.EventHandler(this.frmAdjustOut_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorMS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -300,5 +327,7 @@
         private System.Windows.Forms.Button btnNewItem;
         private System.Windows.Forms.Button btnNewProject;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblSaved;
+        private System.Windows.Forms.ErrorProvider errorMS;
     }
 }

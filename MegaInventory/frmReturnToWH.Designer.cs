@@ -28,8 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblSaved = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnNewItem = new System.Windows.Forms.Button();
+            this.btnNewProject = new System.Windows.Forms.Button();
+            this.btnNewApprover = new System.Windows.Forms.Button();
+            this.btnNewApplicant = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvList = new System.Windows.Forms.DataGridView();
@@ -37,12 +43,13 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.txtPurpose = new System.Windows.Forms.RichTextBox();
             this.cboItem = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.cboApplicant = new System.Windows.Forms.ComboBox();
+            this.cboApprover = new System.Windows.Forms.ComboBox();
             this.cboProject = new System.Windows.Forms.ComboBox();
             this.dtpIssuedDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -58,21 +65,20 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtRefer1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnNewItem = new System.Windows.Forms.Button();
-            this.btnNewProject = new System.Windows.Forms.Button();
-            this.btnNewApprover = new System.Windows.Forms.Button();
-            this.btnNewApplicant = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.errorMS = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorMS)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblSaved);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnNewItem);
             this.panel1.Controls.Add(this.btnNewProject);
@@ -83,8 +89,8 @@
             this.panel1.Controls.Add(this.dgvList);
             this.panel1.Controls.Add(this.txtPurpose);
             this.panel1.Controls.Add(this.cboItem);
-            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.cboApplicant);
+            this.panel1.Controls.Add(this.cboApprover);
             this.panel1.Controls.Add(this.cboProject);
             this.panel1.Controls.Add(this.dtpIssuedDate);
             this.panel1.Controls.Add(this.label3);
@@ -111,6 +117,17 @@
             this.panel1.Size = new System.Drawing.Size(1040, 537);
             this.panel1.TabIndex = 2;
             // 
+            // lblSaved
+            // 
+            this.lblSaved.AutoSize = true;
+            this.lblSaved.Image = global::MegaInventory.Properties.Resources._checked;
+            this.lblSaved.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblSaved.Location = new System.Drawing.Point(735, 498);
+            this.lblSaved.Name = "lblSaved";
+            this.lblSaved.Size = new System.Drawing.Size(62, 22);
+            this.lblSaved.TabIndex = 14;
+            this.lblSaved.Text = "     Saved";
+            // 
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(923, 495);
@@ -120,6 +137,46 @@
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // btnNewItem
+            // 
+            this.btnNewItem.Image = global::MegaInventory.Properties.Resources.add_new_document;
+            this.btnNewItem.Location = new System.Drawing.Point(641, 114);
+            this.btnNewItem.Name = "btnNewItem";
+            this.btnNewItem.Size = new System.Drawing.Size(30, 30);
+            this.btnNewItem.TabIndex = 6;
+            this.btnNewItem.UseVisualStyleBackColor = true;
+            this.btnNewItem.Click += new System.EventHandler(this.btnNewItem_Click);
+            // 
+            // btnNewProject
+            // 
+            this.btnNewProject.Image = global::MegaInventory.Properties.Resources.add_new_document;
+            this.btnNewProject.Location = new System.Drawing.Point(315, 241);
+            this.btnNewProject.Name = "btnNewProject";
+            this.btnNewProject.Size = new System.Drawing.Size(30, 30);
+            this.btnNewProject.TabIndex = 6;
+            this.btnNewProject.UseVisualStyleBackColor = true;
+            this.btnNewProject.Click += new System.EventHandler(this.btnNewProject_Click);
+            // 
+            // btnNewApprover
+            // 
+            this.btnNewApprover.Image = global::MegaInventory.Properties.Resources.add_new_document;
+            this.btnNewApprover.Location = new System.Drawing.Point(315, 180);
+            this.btnNewApprover.Name = "btnNewApprover";
+            this.btnNewApprover.Size = new System.Drawing.Size(30, 30);
+            this.btnNewApprover.TabIndex = 6;
+            this.btnNewApprover.UseVisualStyleBackColor = true;
+            this.btnNewApprover.Click += new System.EventHandler(this.btnNewApprover_Click);
+            // 
+            // btnNewApplicant
+            // 
+            this.btnNewApplicant.Image = global::MegaInventory.Properties.Resources.add_new_document;
+            this.btnNewApplicant.Location = new System.Drawing.Point(315, 123);
+            this.btnNewApplicant.Name = "btnNewApplicant";
+            this.btnNewApplicant.Size = new System.Drawing.Size(30, 30);
+            this.btnNewApplicant.TabIndex = 6;
+            this.btnNewApplicant.UseVisualStyleBackColor = true;
+            this.btnNewApplicant.Click += new System.EventHandler(this.btnNewApplicant_Click);
+            // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(803, 495);
@@ -128,6 +185,7 @@
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "&Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnAdd
             // 
@@ -137,6 +195,7 @@
             this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "&Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // dgvList
             // 
@@ -150,12 +209,16 @@
             this.Column3,
             this.Column4,
             this.Column5,
-            this.Column6});
+            this.Column6,
+            this.Column7});
             this.dgvList.Location = new System.Drawing.Point(421, 164);
             this.dgvList.Name = "dgvList";
             this.dgvList.ReadOnly = true;
+            this.dgvList.RowHeadersVisible = false;
+            this.dgvList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvList.Size = new System.Drawing.Size(602, 269);
             this.dgvList.TabIndex = 5;
+            this.dgvList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellClick);
             // 
             // Column1
             // 
@@ -167,22 +230,21 @@
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Description";
+            this.Column2.HeaderText = "itemCode";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Visible = false;
             // 
             // Column3
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column3.HeaderText = "UnitPrice";
+            this.Column3.HeaderText = "Description";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 75;
             // 
             // Column4
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column4.HeaderText = "Quantity";
+            this.Column4.HeaderText = "UnitPrice";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             this.Column4.Width = 75;
@@ -190,22 +252,30 @@
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column5.HeaderText = "Edit";
+            this.Column5.HeaderText = "Quantity";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
-            this.Column5.Text = "Edit";
-            this.Column5.UseColumnTextForButtonValue = true;
             this.Column5.Width = 75;
             // 
             // Column6
             // 
             this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column6.HeaderText = "Delete";
+            this.Column6.HeaderText = "Edit";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            this.Column6.Text = "Remove";
+            this.Column6.Text = "Edit";
             this.Column6.UseColumnTextForButtonValue = true;
             this.Column6.Width = 75;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column7.HeaderText = "Delete";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Text = "Remove";
+            this.Column7.UseColumnTextForButtonValue = true;
+            this.Column7.Width = 75;
             // 
             // txtPurpose
             // 
@@ -223,21 +293,21 @@
             this.cboItem.Size = new System.Drawing.Size(214, 30);
             this.cboItem.TabIndex = 3;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(95, 123);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(214, 30);
-            this.comboBox1.TabIndex = 3;
-            // 
             // cboApplicant
             // 
             this.cboApplicant.FormattingEnabled = true;
-            this.cboApplicant.Location = new System.Drawing.Point(95, 180);
+            this.cboApplicant.Location = new System.Drawing.Point(95, 123);
             this.cboApplicant.Name = "cboApplicant";
             this.cboApplicant.Size = new System.Drawing.Size(214, 30);
             this.cboApplicant.TabIndex = 3;
+            // 
+            // cboApprover
+            // 
+            this.cboApprover.FormattingEnabled = true;
+            this.cboApprover.Location = new System.Drawing.Point(95, 180);
+            this.cboApprover.Name = "cboApprover";
+            this.cboApprover.Size = new System.Drawing.Size(214, 30);
+            this.cboApprover.TabIndex = 3;
             // 
             // cboProject
             // 
@@ -270,6 +340,7 @@
             this.txtItemCode.Name = "txtItemCode";
             this.txtItemCode.Size = new System.Drawing.Size(250, 29);
             this.txtItemCode.TabIndex = 1;
+            this.txtItemCode.TextChanged += new System.EventHandler(this.txtItemCode_TextChanged);
             // 
             // label10
             // 
@@ -293,6 +364,7 @@
             this.txtUnitPrice.Name = "txtUnitPrice";
             this.txtUnitPrice.Size = new System.Drawing.Size(200, 29);
             this.txtUnitPrice.TabIndex = 1;
+            this.txtUnitPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUnitPrice_KeyPress);
             // 
             // label11
             // 
@@ -309,6 +381,7 @@
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(200, 29);
             this.txtQty.TabIndex = 1;
+            this.txtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQty_KeyPress);
             // 
             // label9
             // 
@@ -364,6 +437,28 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Approver :";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Image = global::MegaInventory.Properties.Resources.creative;
+            this.label15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label15.Location = new System.Drawing.Point(19, 500);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(363, 22);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "     ព័តមានទាំងអស់នឹងមិនអនុញ្ញាតិអោយ កែ ឬលុប បន្ទាប់ពីចុចប៊ូតុង Save";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Image = global::MegaInventory.Properties.Resources.creative;
+            this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label14.Location = new System.Drawing.Point(19, 466);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(246, 22);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "     សួមពិនិត្យឡើងវិញ រាល់ទិន្ន័យដែលបានបញ្ជូល";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -389,63 +484,9 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Reference :";
             // 
-            // btnNewItem
+            // errorMS
             // 
-            this.btnNewItem.Image = global::MegaInventory.Properties.Resources.add_new_document;
-            this.btnNewItem.Location = new System.Drawing.Point(641, 114);
-            this.btnNewItem.Name = "btnNewItem";
-            this.btnNewItem.Size = new System.Drawing.Size(30, 30);
-            this.btnNewItem.TabIndex = 6;
-            this.btnNewItem.UseVisualStyleBackColor = true;
-            // 
-            // btnNewProject
-            // 
-            this.btnNewProject.Image = global::MegaInventory.Properties.Resources.add_new_document;
-            this.btnNewProject.Location = new System.Drawing.Point(315, 241);
-            this.btnNewProject.Name = "btnNewProject";
-            this.btnNewProject.Size = new System.Drawing.Size(30, 30);
-            this.btnNewProject.TabIndex = 6;
-            this.btnNewProject.UseVisualStyleBackColor = true;
-            // 
-            // btnNewApprover
-            // 
-            this.btnNewApprover.Image = global::MegaInventory.Properties.Resources.add_new_document;
-            this.btnNewApprover.Location = new System.Drawing.Point(315, 180);
-            this.btnNewApprover.Name = "btnNewApprover";
-            this.btnNewApprover.Size = new System.Drawing.Size(30, 30);
-            this.btnNewApprover.TabIndex = 6;
-            this.btnNewApprover.UseVisualStyleBackColor = true;
-            // 
-            // btnNewApplicant
-            // 
-            this.btnNewApplicant.Image = global::MegaInventory.Properties.Resources.add_new_document;
-            this.btnNewApplicant.Location = new System.Drawing.Point(315, 123);
-            this.btnNewApplicant.Name = "btnNewApplicant";
-            this.btnNewApplicant.Size = new System.Drawing.Size(30, 30);
-            this.btnNewApplicant.TabIndex = 6;
-            this.btnNewApplicant.UseVisualStyleBackColor = true;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Image = global::MegaInventory.Properties.Resources.creative;
-            this.label15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label15.Location = new System.Drawing.Point(19, 500);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(363, 22);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "     ព័តមានទាំងអស់នឹងមិនអនុញ្ញាតិអោយ កែ ឬលុប បន្ទាប់ពីចុចប៊ូតុង Save";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Image = global::MegaInventory.Properties.Resources.creative;
-            this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label14.Location = new System.Drawing.Point(19, 466);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(246, 22);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "     សួមពិនិត្យឡើងវិញ រាល់ទិន្ន័យដែលបានបញ្ជូល";
+            this.errorMS.ContainerControl = this;
             // 
             // frmReturnToWH
             // 
@@ -455,9 +496,11 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmReturnToWH";
             this.Text = "Return to wearhouse";
+            this.Load += new System.EventHandler(this.frmReturnToWH_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorMS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -473,16 +516,10 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewButtonColumn Column5;
-        private System.Windows.Forms.DataGridViewButtonColumn Column6;
         private System.Windows.Forms.RichTextBox txtPurpose;
         private System.Windows.Forms.ComboBox cboItem;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox cboApplicant;
+        private System.Windows.Forms.ComboBox cboApprover;
         private System.Windows.Forms.ComboBox cboProject;
         private System.Windows.Forms.DateTimePicker dtpIssuedDate;
         private System.Windows.Forms.Label label3;
@@ -503,5 +540,14 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtRefer1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewButtonColumn Column6;
+        private System.Windows.Forms.DataGridViewButtonColumn Column7;
+        private System.Windows.Forms.ErrorProvider errorMS;
+        private System.Windows.Forms.Label lblSaved;
     }
 }

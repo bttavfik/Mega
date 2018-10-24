@@ -83,9 +83,29 @@ namespace MegaInventory.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cancel_20px {
+            get {
+                object obj = ResourceManager.GetObject("Cancel_20px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap creative {
             get {
                 object obj = ResourceManager.GetObject("creative", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Error_18px {
+            get {
+                object obj = ResourceManager.GetObject("Error_18px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

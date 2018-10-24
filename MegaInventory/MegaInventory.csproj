@@ -87,6 +87,12 @@
     <Compile Include="frmAdjustOut.Designer.cs">
       <DependentUpon>frmAdjustOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAdjustOutView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdjustOutView.Designer.cs">
+      <DependentUpon>frmAdjustOutView.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +291,9 @@
     <EmbeddedResource Include="frmAdjustOut.resx">
       <DependentUpon>frmAdjustOut.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAdjustOutView.resx">
+      <DependentUpon>frmAdjustOutView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </EmbeddedResource>
@@ -390,6 +399,8 @@
       <DependentUpon>InventoryModel.edmx</DependentUpon>
       <LastGenOutput>InventoryModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Error_18px.png" />
+    <None Include="Resources\Cancel_20px.png" />
     <None Include="Resources\checked.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
